@@ -1,14 +1,14 @@
-# Ignore virtual environment
+# Python virtual environments
 venv/
 .venv/
 
-# Ignore system files
+# Python artifacts
 __pycache__/
 *.pyc
 
-# Ignore your local form submissions
+# Local data file
 submission.json
 
-# Ignore VS Code settings or macOS files (if applicable)
-.vscode/
+# System/Editor files
 .DS_Store
+.vscode/
