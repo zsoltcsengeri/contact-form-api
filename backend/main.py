@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware #to allow the frontend to tal
 from pydantic import BaseModel #to define what kind of data we expect in the form
 import json #to read and write the form submissions
 import os #to check if a file exists (submission.json)
+from fastapi.responses import JSONResponse
+
 
 
 
@@ -36,6 +38,7 @@ class Contact(BaseModel):
 #When someone sends a POST request to /submit with a form 
 #that matches the Contact structure → run this function.
 def receive_form(contact: Contact):
+    print("Received contact:", contact)
     new_data = contact.model_dump()  # convert to dictionary
 
     if os.path.exists("submission.json"): #Check if the file already exists
@@ -49,5 +52,10 @@ def receive_form(contact: Contact):
     with open("submission.json", "w") as f: #Save it back into the file
         json.dump(data, f, indent=2)
 
-    return {"message": "Form submitted successfully"} #Return a message to the frontend/browser
+    print("✅ Backend received contact data:")
+    print(new_data)
+
+    return JSONResponse(content={"message": "Form submitted successfully"})
+
+    #return {"message": "Form submitted successfully"} #Return a message to the frontend/browser
    

@@ -26,7 +26,7 @@
     />
 
     <!-- Favicon -->
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
   </head>
 
   <body>
@@ -157,23 +157,50 @@
             <!-- form submission data transfers to a JSON file via a locally hosted server -->
             <form id="contactForm">
 
+
               <div class="info">
                 <input id="name" type="text" name="name" placeholder="Name" />
-                <input id="email" type="text" name="email" placeholder="Email" />
-                <input id="phone" type="text" name="phone" placeholder="Phone number" />
-                <input id="website" type="text" name="website" placeholder="Website" />
+                <input
+                  id="email"
+                  type="text"
+                  name="email"
+                  placeholder="Email"
+                />
+                <input
+                  id="phone"
+                  type="text"
+                  name="phone"
+                  placeholder="Phone number"
+                />
+                <input
+                  id="website"
+                  type="text"
+                  name="website"
+                  placeholder="Website"
+                />
               </div>
               <p class="message">Message</p>
               <div class="text">
-                <textarea id="message" rows="4" name="message" placeholder="Message..."></textarea>
+                <textarea
+                  id="message"
+                  rows="4"
+                  name="message"
+                  placeholder="Message..."
+                ></textarea>
               </div>
               <label class="accept">
                 <input type="checkbox" name="terms" required />
-                <a class="a-accept" href="./terms_conditions.html" target="_blank">Read the terms &amp; conditions</a>
+                <a
+                  class="a-accept"
+                  href="./terms_conditions.html"
+                  target="_blank"
+                  >Read the terms &amp; conditions</a
+                >
               </label>
+              <div id="statusMessage" class="error">Something went wrong</div>
+
               <button class="btn-low" type="submit">Submit</button>
             </form>
-            
           </div>
         </div>
       </section>
@@ -200,6 +227,5 @@
       </div>
     </footer>
     <script src="./script.js"></script>
-    
   </body>
 </html>
