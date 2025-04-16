@@ -18,7 +18,7 @@ app.add_middleware(
 )
 
 # PostgreSQL DB setup
-DATABASE_URL = "postgresql://username:password@localhost/contactdb"
+DATABASE_URL = "postgresql://postgres:menzoberanzan@localhost/contactdb"
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine)
 Base = declarative_base()
@@ -56,7 +56,7 @@ class ContactCreate(BaseModel):
 # POST endpoint
 @app.post("/submit")
 def create_contact(contact: ContactCreate, db: Session = Depends(get_db)):
-    db_contact = Contact(**contact.dict())
+    db_contact = Contact(**contact.model_dump())
     db.add(db_contact)
     db.commit()
     db.refresh(db_contact)
