@@ -4,6 +4,11 @@ from pydantic import BaseModel
 from sqlalchemy import Column, Integer, String, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Loads from .env file
+
 
 # Create FastAPI app
 app = FastAPI()
@@ -18,7 +23,7 @@ app.add_middleware(
 )
 
 # PostgreSQL DB setup
-DATABASE_URL = "postgresql://postgres:menzoberanzan@localhost/contactdb"
+DATABASE_URL = os.getenv("DATABASE_URL") # PostgreSQL DB setup using env variable
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine)
 Base = declarative_base()
